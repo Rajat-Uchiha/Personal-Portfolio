@@ -6,7 +6,6 @@ export default function Contact() {
 
   let submitFunc = () => {
     let youName = document.getElementById("yourName");
-    console.log(youName.value);
   }
 
 
@@ -43,6 +42,7 @@ export default function Contact() {
         }, (error) => {
           swal("Failure!", "Something went wrong!", "warning");
         });
+        e.target.reset();
     }
     else {
       swal("Failure!", "Something went wrong!", "warning");

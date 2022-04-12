@@ -6,7 +6,7 @@ import Quali from "./Components/Quali";
 import Projects from "./Components/Projects";
 import ocean from './Components/ocean.jpg'
 import Footer from "./Components/Footer";
-import LoadingBar from 'react-top-loading-bar'
+import PageNotfound from "./Components/PageNotfound";
 import {
   BrowserRouter as Router,
   Routes,
@@ -22,7 +22,6 @@ function App() {
   return (
     <>
       <Router>
-
         <Navbar />
         <Routes>
           <Route exact path="/" element={<Homepage bgStyle={bgStyle} />}></Route>
@@ -30,6 +29,7 @@ function App() {
           <Route exact path="/qualifications" element={<Quali bgStyle={bgStyle} />}></Route>
           <Route exact path="/projects" element={<Projects bgStyle={bgStyle} />}></Route>
           <Route exact path="/contact" element={<Contact bgStyle={bgStyle} />}></Route>
+          <Route path="*" element={<PageNotfound />} ></Route>
         </Routes>
       </Router>
       <Footer />
