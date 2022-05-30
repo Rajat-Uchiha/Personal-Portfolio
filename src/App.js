@@ -4,7 +4,6 @@ import Homepage from "./Components/Homepage";
 import Skills from "./Components/Skills";
 import Quali from "./Components/Quali";
 import Projects from "./Components/Projects";
-import ocean from './Components/ocean.jpg'
 import Footer from "./Components/Footer";
 import PageNotfound from "./Components/PageNotfound";
 import {
@@ -13,10 +12,7 @@ import {
   Route
 } from "react-router-dom";
 function App() {
-  let bgStyle = {
-    backgroundImage: `url(${ocean})`,
-    backgroundPosition: "center",
-  }
+ 
 
 
   return (
@@ -24,11 +20,11 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route exact path="/" element={<Homepage bgStyle={bgStyle} />}></Route>
-          <Route exact path="/skills" element={<Skills bgStyle={bgStyle} />}></Route>
-          <Route exact path="/qualifications" element={<Quali bgStyle={bgStyle} />}></Route>
-          <Route exact path="/projects" element={<Projects bgStyle={bgStyle} />}></Route>
-          <Route exact path="/contact" element={<Contact bgStyle={bgStyle} />}></Route>
+          <Route exact path="/" element={<Homepage />}></Route>
+          <Route exact path="/skills" element={<Skills  />}></Route>
+          <Route exact path="/qualifications" element={<Quali  />}></Route>
+          <Route exact path="/projects" element={<Projects  />}></Route>
+          <Route exact path="/contact" element={<Contact  />}></Route>
           <Route path="*" element={<PageNotfound />} ></Route>
         </Routes>
       </Router>

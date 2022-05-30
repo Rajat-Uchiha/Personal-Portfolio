@@ -6,11 +6,22 @@ import apimaster from './apimaster.png'
 import remindmeplease from './remindmeplease.png'
 import aboutcovidnow from './aboutcovidnow.png'
 import moviehub from './moviehub.png'
+import portfolio from './portfolio.png'
+
+import Slide from 'react-reveal/Slide';
 
 export default function Projects(props) {
 
 
     Projects = [
+        {
+            projectName: "Portfolio",
+            projectDesc: "This is my personal portfolio which tells everything about me.",
+            technologiesUsed: "created using HTML5, tailwindCSS, JS, reactjs and emailjs.",
+            imageLink: portfolio,
+            githubLink: "https://github.com/Rajat-Uchiha/Personal-Portfolio",
+            liveProjectLink: "https://workwithrajat.netlify.app/"
+        },
         {
             projectName: "Covid-19 Report",
             projectDesc: "A web application which gives report about covid-19 cases until now",
@@ -65,12 +76,15 @@ export default function Projects(props) {
 
     return (
         < >
-            <div style={props.bgStyle}>
+            <div style={props.bgStyle} className="bg-stone-800" >
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#1c1917" fillOpacity="1" d="M0,160L60,165.3C120,171,240,181,360,197.3C480,213,600,235,720,213.3C840,192,960,128,1080,112C1200,96,1320,128,1380,144L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path></svg>
                 </div>
                 <div className='py-2 '>
-                    <h1 className='text-3xl py-2 md:text-4xl lg:text-5xl hover xl:text-5xl font-Chewy rounded-full text-center text-white  underline underline-offset-4 ' >Projects</h1>
+                    <Slide left>
+                        <h1 className='text-3xl py-2 md:text-4xl lg:text-5xl hover xl:text-5xl font-Chewy rounded-full text-center text-white  underline underline-offset-4 ' >Projects</h1>
+                    </Slide>
+
                 </div>
 
 

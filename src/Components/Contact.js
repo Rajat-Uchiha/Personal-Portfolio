@@ -2,6 +2,9 @@ import React from 'react'
 import { useState } from 'react';
 import emailjs from 'emailjs-com'
 import swal from 'sweetalert';
+import Slide from 'react-reveal/Slide';
+import Bounce from 'react-reveal/Bounce';
+
 export default function Contact() {
 
   let submitFunc = () => {
@@ -42,7 +45,7 @@ export default function Contact() {
         }, (error) => {
           swal("Failure!", "Something went wrong!", "warning");
         });
-        e.target.reset();
+      e.target.reset();
     }
     else {
       swal("Failure!", "Something went wrong!", "warning");
@@ -60,32 +63,47 @@ export default function Contact() {
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#1c1917" fillOpacity="1" d="M0,160L60,165.3C120,171,240,181,360,197.3C480,213,600,235,720,213.3C840,192,960,128,1080,112C1200,96,1320,128,1380,144L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path></svg>
         </div>
         <div className='py-2 '>
-          <h1 className='text-3xl py-2 md:text-4xl lg:text-5xl hover xl:text-5xl font-Chewy rounded-full text-center text-white  underline underline-offset-4 ' >Now It's your turn to say hi! <span className='text-5xl' >
-            &#128075;</span> </h1>
-          <p className='text-center text-white text-lg font-serif px-5 ' >P-145 Garden Colony, Rupnagar, Punjab, 🇮🇳</p>
+          <Slide left>
+            <h1 className='text-3xl py-2 md:text-4xl lg:text-5xl hover xl:text-5xl font-Chewy rounded-full text-center text-white  underline underline-offset-4 ' >Now It's your turn to say hi! <span className='text-5xl' >
+              &#128075;</span> </h1>
+          </Slide>
+          <Slide right>
+            <p className='text-center text-white text-lg font-serif px-5 ' >P-145 Garden Colony, Rupnagar, Punjab, 🇮🇳</p>
+          </Slide>
+
         </div>
 
         {/* Main Form starts from here */}
         <form onSubmit={sendEmail} >
           <div className='  px-2 py-4  mx-auto w-2/3 ' >
-            <div className=' flex-col flex justify-start py-2' >
-              <label className=' text-white font-Chewy font-light text-3xl my-2' htmlFor="email ">NAME</label>
-              <input id='yourName' name='name' value={userName} onChange={handleNameChange} placeholder='Name' className='w-full rounded-lg bg-stone-700 text-lg  placeholder:text-white  focus:border-lime-600 focus:ring-2 focus:ring-lime-600  outline-none text-white py-1 px-3 leading-8 transition-colors duration-200 ease-in-out ' type="text" />
-            </div>
-            <div className=' flex-col flex justify-start py-2' >
-              <label className=' text-white font-Chewy font-light text-3xl my-2 ' htmlFor="email ">EMAIL</label>
-              <input placeholder='Email' value={userEmail} onChange={handleEmailChange} name='u_email' className='w-full rounded-lg bg-stone-700 text-lg  placeholder:text-white  focus:border-lime-600 focus:ring-2 focus:ring-lime-600  outline-none text-white py-1 px-3 leading-8 transition-colors duration-200 ease-in-out ' type="email" />
+            <Bounce left>
+              <div className=' flex-col flex justify-start py-2' >
+                <label className=' text-white font-Chewy font-light text-3xl my-2' htmlFor="email ">NAME</label>
+                <input id='yourName' name='name' value={userName} onChange={handleNameChange} placeholder='Name' className='w-full rounded-lg bg-stone-700 text-lg  placeholder:text-white  focus:border-lime-600 focus:ring-2 focus:ring-lime-600  outline-none text-white py-1 px-3 leading-8 transition-colors duration-200 ease-in-out ' type="text" />
+              </div>
+            </Bounce>
 
-            </div>
-            <div className=' flex-col flex justify-start py-2' >
-              <label className=' text-white font-Chewy font-light text-3xl  my-2' htmlFor="email ">MESSAGE</label>
-              <textarea placeholder='Message' value={userMsg} onChange={handleMsgChange} name='message' className='w-full rounded-lg bg-stone-700 text-lg max-h-5/6 placeholder:text-white  focus:border-lime-600 focus:ring-2 focus:ring-lime-600  outline-none text-white py-1 px-3 leading-8 transition-colors duration-200 ease-in-out ' type="text" />
-            </div>
-            <div className='mx-auto w-full  my-5' >
-              <button onSubmit={submitFunc} disabled={!userName || !userEmail || !userMsg} className='disabled:cursor-not-allowed border-2 rounded-lg w-full py-4 active hover:text-lime-600 bg-stone-700 hover:border-lime-600 hover:bg-stone-800 text-white text-lg border-white' >
-                Send Message
-              </button>
-            </div>
+            <Bounce right>
+              <div className=' flex-col flex justify-start py-2' >
+                <label className=' text-white font-Chewy font-light text-3xl my-2 ' htmlFor="email ">EMAIL</label>
+                <input placeholder='Email' value={userEmail} onChange={handleEmailChange} name='u_email' className='w-full rounded-lg bg-stone-700 text-lg  placeholder:text-white  focus:border-lime-600 focus:ring-2 focus:ring-lime-600  outline-none text-white py-1 px-3 leading-8 transition-colors duration-200 ease-in-out ' type="email" />
+              </div>
+            </Bounce>
+
+            <Bounce left>
+              <div className=' flex-col flex justify-start py-2' >
+                <label className=' text-white font-Chewy font-light text-3xl  my-2' htmlFor="email ">MESSAGE</label>
+                <textarea placeholder='Message' value={userMsg} onChange={handleMsgChange} name='message' className='w-full rounded-lg bg-stone-700 text-lg max-h-5/6 placeholder:text-white  focus:border-lime-600 focus:ring-2 focus:ring-lime-600  outline-none text-white py-1 px-3 leading-8 transition-colors duration-200 ease-in-out ' type="text" />
+              </div>
+            </Bounce>
+
+            <Bounce right>
+              <div className='mx-auto w-full  my-5' >
+                <button onSubmit={submitFunc} disabled={!userName || !userEmail || !userMsg} className='disabled:cursor-not-allowed border-2 rounded-lg w-full py-4 active hover:text-lime-600 bg-stone-700 hover:border-lime-600 hover:bg-stone-800 text-white text-lg border-white' >
+                  Send Message
+                </button>
+              </div>
+            </Bounce>
           </div>
         </form>
         <p className='text-center text-white text-lg font-serif px-5 ' >I'll contact you soon! &#128516;</p>
